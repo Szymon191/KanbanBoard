@@ -9,4 +9,4 @@ from KanbanBoardApp.models import Task
 def toDo(request):
 
     toDo = Task.object.all().filter(status="do_zrobienia")
-    return render(request, 'index/toDo.html', {'todo': toDo})
+    return render(request, 'tasks/toDo.html', {'todo': toDo})

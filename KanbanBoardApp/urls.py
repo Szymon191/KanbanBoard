@@ -5,5 +5,5 @@ from KanbanBoardApp import views
 app_name = 'KanbanBoardApp'
 
 urlpatterns = [
-    path('', views.toDo, name='toDo')
+    path('', views.toDo, name='toDo'),
 ]
