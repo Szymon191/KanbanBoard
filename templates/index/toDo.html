@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block toDo %}
+    {% for task in toDo %}
+        <div>{{ task.title }}</div>
+    {% endfor %}
+
+{% endblock %}

@@ -10,6 +10,8 @@ class Task(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='do_zrobienia')
 
     object = models.Manager()
+    class Meta:
+        ordering=('-title',)
 
     def __str__(self):
         return self.title
