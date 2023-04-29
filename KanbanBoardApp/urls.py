@@ -6,4 +6,5 @@ app_name = 'KanbanBoardApp'
 
 urlpatterns = [
     path('', views.toDo, name='toDo'),
+    path('', views.inProgress, name='inProgress')
 ]

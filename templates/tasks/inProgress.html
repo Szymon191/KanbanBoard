@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block inProgress %}
+    {% for task in inprogress %}
+        <div>{{ task.title }}</div>
+    {% endfor %}
+{% endblock %}
