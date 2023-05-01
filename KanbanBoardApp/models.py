@@ -2,9 +2,6 @@ from django.db import models
 from django.urls import reverse
 
 
-# Create your models here.
-
-
 class Task(models.Model):
     STATUS_CHOICES = (('do_zrobienia', 'Do_zrobienia'), ('w_trakcie', 'W_trakcie'), ('zrobione','Zrobione'))
     title = models.CharField(max_length=250)
@@ -12,11 +9,11 @@ class Task(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='do_zrobienia')
 
     object = models.Manager()
-    class Meta:
-        ordering=('-title',)
+
 
     def __str__(self):
         return self.title
 
-    def set_title(self, title):
-       self.title = title
+
+    def get_absolute_url(self):
+        return reverse('KanbanBoardApp:once', args=[self.title])
