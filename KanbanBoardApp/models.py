@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.backends import django
 from django.urls import reverse
 
 
@@ -14,6 +15,3 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
-
-    def get_absolute_url(self):
-        return reverse('KanbanBoardApp:once', args=[self.title])

@@ -1,5 +1,7 @@
 from django.http import request
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic import ListView, UpdateView, DeleteView
 
 from KanbanBoardApp.models import Task
 from .forms import addForm
@@ -23,8 +25,19 @@ def tasks(request):
     done = Task.object.all().filter(status="zrobione")
     return render(request, 'base.html', {'toDo': toDo, 'progres': w_trakcie, 'done': done})
 
-def status(request, task_title):
-    once = Task.object.all().filter(title=task_title)
-    toDo = Task.object.all().filter(status="do_zrobienia")
-    w_trakcie = Task.object.all().filter(status="w_trakcie")
-    return render(request, 'tasks/detail.html', {'toDo': toDo, 'progres': w_trakcie, 'once': once})
+
+class UpdateTask(UpdateView):
+    model = Task
+    template_name = 'tasks/update.html'
+    fields = ['title', 'body', 'status']
+
+    def get_success_url(self):
+        return reverse('KanbanBoardApp:toDo')
+
+
+class DeleteTask(DeleteView):
+    model = Task
+    template_name = 'tasks/delete.html'
+
+    def get_success_url(self):
+        return reverse('KanbanBoardApp:toDo')

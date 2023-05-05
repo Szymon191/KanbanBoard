@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/add.css" %}">
+</head>
+<body>
+    <main>
+        <div class="form">
+            <center>
+                <h1>Usun TASKa</h1>
+                <hr>
+                <br>
+                <div class="flex">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h3>czy napewno chcesz usunac taska?</h3>
+
+                        <br>
+
+                        <button class="button" type="submit">
+                            <div class="buttonContainer">
+                                <div class="button__line"></div>
+                                <div class="button__line"></div>
+                                <span class="button__text">Usun</span>
+                                <div class="button__drow1"></div>
+                                <div class="button__drow2"></div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </center>
+        </div>
+    </main>
+</body>
+</html>
