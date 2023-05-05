@@ -1,8 +1,13 @@
 from django import forms
-from django.forms import ModelForm
-from KanbanBoardApp.models import Task
+from .models import Task
 
-class TaskForm(ModelForm):
+
+class addForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title','body','status']
+        fields = ['title', 'body', 'status']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'input'}),
+            'body': forms.Textarea(attrs={'class': 'input'}),
+            'status': forms.Select(attrs={'class': 'input'})
+        }

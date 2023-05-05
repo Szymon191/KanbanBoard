@@ -1,0 +1,165 @@
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    font-family: Verdana;
+
+    background-image: url("../bg.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+::-webkit-scrollbar {
+    margin-top: 2px;
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: gold;
+}
+
+.top{
+    width: 100%;
+    height: 5vh;
+    backdrop-filter: blur(20px);
+
+    color: white; 
+
+    display: flex;
+    align-items: center;
+}
+
+.top h2{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.top i{
+    font-size: 20px;
+    margin: 20px;
+}
+
+.top ul{
+    list-style: none;
+    display: flex;
+    margin-top: 2vh;
+}
+
+.top li{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.top li:hover{
+    background-color: gold;
+    color: black;
+}
+
+.offcanvas.offcanvas-start{
+    width: 20%;
+}
+
+.offcanvas{
+    background-color: transparent;
+    height: 95vh;
+    margin-top: 5vh;
+}
+
+.offcanvas-backdrop.show{
+    opacity: 0.5;
+}
+
+.offcanvas-backdrop{
+    width: 0;
+    height: 0;
+}
+
+
+
+
+main{
+    width: 100%;
+    height: 95vh;
+
+    display: flex;
+}
+
+.left{
+    color: white;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px);
+}
+
+.left .tables{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.edit i{
+    color: black;
+}
+
+.edit a{
+    margin: 0 5px 0 5px;
+}
+
+.left i{
+    font-size: 20px;
+    color: white;
+}
+
+.left .text{
+    font-size: 20px;
+}
+
+
+.right{
+    width: 80%;
+    height: 95vh;
+    
+    position: absolute;
+    right: 0;
+    padding: 30px;
+
+    overflow-y: scroll;
+
+}
+
+.add-right{
+    font-size: 20px;
+}
+
+.topic a{
+    color: gold;
+}
+
+.topic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .top li{
+        display: none;
+    }
+
+    .task{
+        width: 100%;
+    }
+
+    .yourTables{
+        display: none;
+    }
+}

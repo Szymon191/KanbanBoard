@@ -1,50 +1,30 @@
-
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from KanbanBoardApp.models import Task
-from .forms import TaskForm
-
-# Create your views here.
+from .forms import addForm
 
 
+def add(request):
+    if request.method == 'POST':
+        form = addForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = addForm()
+
+    return render(request, 'add/add.html', {'form': form})
 
 
 def tasks(request):
     toDo = Task.object.all().filter(status="do_zrobienia")
     w_trakcie = Task.object.all().filter(status="w_trakcie")
-    return render(request, 'base.html', {'toDo': toDo, 'progres': w_trakcie})
+    done = Task.object.all().filter(status="zrobione")
+    return render(request, 'base.html', {'toDo': toDo, 'progres': w_trakcie, 'done': done})
 
-
-def detail(request, task_title):
+def status(request, task_title):
     once = Task.object.all().filter(title=task_title)
     toDo = Task.object.all().filter(status="do_zrobienia")
     w_trakcie = Task.object.all().filter(status="w_trakcie")
-
-    element = Task.object.all().filter()
-
-
-    initialDate = {
-        'title':task_title,
-        'body': element.model.body,
-        'status': once.model.status
-    }
-    #form = TaskForm(initial=initialDate)
-
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            # zapisz użytkownika i przekieruj na stronę powodzenia
-    else:
-        form = TaskForm(initial=initialDate)
-    #context = {'form':form}
-    return render(request, 'tasks/detail.html', {'toDo': toDo, 'progres': w_trakcie, 'once': once, 'form': form})
-
-
-def test(request):
-    return render(request,'tasks/test.html')
-
-
-
-
-
+    return render(request, 'tasks/detail.html', {'toDo': toDo, 'progres': w_trakcie, 'once': once})

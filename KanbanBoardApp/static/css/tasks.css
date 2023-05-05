@@ -1,0 +1,42 @@
+.row{
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.task{
+    margin-top: 25px;
+    width: 25%;
+    height: 80%;
+    background-color: transparent;
+    border: 2px solid gold;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: white;
+}
+
+.task h2{
+    margin: 0;
+    margin-top: 20px;
+}
+
+.body{
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.once_task{
+    width: 90%;
+    background-color: #d6d6d6;
+    border-bottom: 3px solid gold;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    color: black;
+}
+
+.edit{
+    float: right;
+    display: flex;
+}

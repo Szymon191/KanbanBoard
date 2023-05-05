@@ -1,0 +1,19 @@
+.Loading{
+    position:fixed;
+    width:100%; height:100%;
+    top:0; left:0;
+    background: rgba(255,255,255,0.6);
+    z-index:9999;
+    transition: width 2s; -moz-transition: width 2s;/* Firefox 4 */ -webkit-transition: width 2s; /* Safari and Chrome */ -o-transition: width 2s; /* Opera */ }
+
+.loadingImg {
+    position: absolute;
+    top: 50%; margin-top:-85px;
+    left:50%; margin-left:-360px;
+    width:700px; height:150px;
+    opacity: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #FFF;
+    border: 1px solid #d9a0e2;
+}
