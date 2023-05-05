@@ -73,7 +73,9 @@
                                 </a>
                                 <a href="{% url 'KanbanBoardApp:delete' task.pk %}">
                                     <i class="bi bi-trash3-fill" style="color: red"></i>
+
                                 </a>
+                                <input type="text">
                             </div>
                             <hr>
                             {{ task.body|truncatewords:20|linebreaks }}
